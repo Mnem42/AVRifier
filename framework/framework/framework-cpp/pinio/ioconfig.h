@@ -14,22 +14,11 @@ typedef enum {
 	OUTPUT = 1
 } PinMode;
 
-IO set_pin_mode_PORTB(const uint8_t pin_offset, PinMode mode){
-	if (mode) {
-		DDRD ^= mode << pin_offset;
-	}
-	else {
-		DDRD |= mode << pin_offset;
-	}
-}
-
-IO set_pin_mode_PORTD(const uint8_t pin_offset, PinMode mode){
-	if (mode) {
-		DDRD ^= mode << pin_offset;
-	}
-	else {
-		DDRD |= mode << pin_offset;
-	}
+IO set_pin_mode(volatile uint8_t* ddrn, const uint8_t pin_offset, PinMode mode){
+	uint8_t tmp = mode << pin_offset;
+	*ddrn = *ddrn & (1 << pin_offset) | tmp; // Mask out the pin to be toggled,
+	                                         // and then OR in the value shifted
+											 // by the offset
 }
 
 #endif /* IOCONFIG_H_ */

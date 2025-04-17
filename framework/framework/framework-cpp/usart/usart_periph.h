@@ -6,29 +6,25 @@
  */ 
 
 
-#ifndef USART_PERIPH_H_
-#define USART_PERIPH_H_
+#pragma once
 
-namespace usart_periph{
-	#ifdef UBRR0
-	const usart::USARTPort USART0 = {
-		.ubrr   = &UBRR0,
-		.ucsrna = &UCSR0A,
-		.ucsrnb = &UCSR0B,
-		.ucsrnc = &UCSR0C,
-		.udrn   = &UDR0
-	};
-	#endif
+#ifdef UBRR0
 
-	#ifdef UBRR1
-	const usart::USARTPort USART0 = {
-		.ubrr   = &UBRR1,
-		.ucsrna = &UCSR1A,
-		.ucsrnb = &UCSR1B,
-		.ucsrnc = &UCSR1C
-		.udrn   = &UDR1
-	};
-	#endif
-}
+const USARTPort USART0 = {
+	.ubrr   = &UBRR0,
+	.ucsrna = &UCSR0A,
+	.ucsrnb = &UCSR0B,
+	.ucsrnc = &UCSR0C,
+	.udrn   = &UDR0
+};
+#endif
 
-#endif /* USART_PERIPH_H_ */
+#ifdef UBRR1
+const USARTPort USART0 = {
+	.ubrr   = &UBRR1,
+	.ucsrna = &UCSR1A,
+	.ucsrnb = &UCSR1B,
+	.ucsrnc = &UCSR1C
+	.udrn   = &UDR1
+};
+#endif

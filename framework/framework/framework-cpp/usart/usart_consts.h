@@ -4,10 +4,13 @@
  * Created: 17/04/2025 13:20:32
  *  Author: Ishaan
  */ 
+#pragma once
 
-
-#ifndef USART_CONSTS_H_
-#define USART_CONSTS_H_
+// ----------------------------------------------------------------------------
+// USART clock settings
+#define USART_CK_ANM 16 // Asynchronous normal mode
+#define USART_CK_DSM 8  // Double speed normal mode
+#define USART_CK_SMM 2  // Synchronous master mode
 
 // ----------------------------------------------------------------------------
 // USART settings, A
@@ -22,8 +25,8 @@
 
 // ISR settings
 #define USART_ISR_DRE 0b00100000 << 8 // Enable data register empty ISR
-#define USART_ISR_DRE 0b01000000 << 8 // Enable TX complete ISR
-#define USART_ISR_DRE 0b10000000 << 8 // Enable RX complete ISR
+#define USART_ISR_TXC 0b01000000 << 8 // Enable TX complete ISR
+#define USART_ISR_RXC 0b10000000 << 8 // Enable RX complete ISR
 
 // Data direction settings
 #define USART_DD_TXEN 0b00001000 << 8 // Enable TX
@@ -45,5 +48,3 @@
 #define USART_CSZ_9   USART_CSZ_8 | 0b00000100 << 8 // 9 bits, also sets a bit
                                                     // in UCSRnB
 // ----------------------------------------------------------------------------
-
-#endif /* USART_CONSTS_H_ */

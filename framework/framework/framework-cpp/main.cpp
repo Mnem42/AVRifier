@@ -8,23 +8,18 @@
 // #define FRM_NO_INLINE
 
 #define F_CPU 8000000
-//#define FRM_HINT_INLINE
+#define FRM_HINT_INLINE
 
 #include <avr/io.h>
 #include "framework.h"
 
+using namespace gpio;
+
 int main(void) {
-	usart::USART usart0 = usart::USART(usart_periph::USART0, USART_ASYNC,  USART_DD_RXEN | USART_DD_TXEN);
-	usart0.reconfigure(USART_SYNC, USART_DD_RXEN);
+	set_pin_mode(&DDRD, 3, OUTPUT);
+	activate_pin(&PORTD, 3);
 	
-	usart0.set_baud(USART_CK_ANM, 9600);
-	usart0.send_char('t');
-	
-	uint8_t errflag = NULL;
-	char ch = usart0.getch(&errflag);
-	
-	char chars[2] = {'h', 'i'};
-	usart0.send_bytes<2>(chars);
-	
-	usart0.send_chars("hello world");
+	while (1) {
+		flip_pin(&PORTD, 3);
+	}
 }

@@ -19,8 +19,6 @@
 
 #include "pinio/pinio.h"
 
-#include "usart/usart_consts.h"
 #include "usart/usart.h"
-#include "usart/usart_periph.h"
 
 #endif /* FRAMEWORK_H_ */

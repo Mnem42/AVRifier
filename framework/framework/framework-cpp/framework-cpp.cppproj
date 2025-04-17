@@ -172,6 +172,9 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="pinio\gpio_input.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="pinio\gpio_output.h">
       <SubType>compile</SubType>
     </Compile>
@@ -182,6 +185,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usart\usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usart\usart_class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usart\usart_consts.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usart\usart_periph.h">
