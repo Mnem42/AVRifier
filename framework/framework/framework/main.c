@@ -5,16 +5,21 @@
  * Author : Mnem
  */ 
 
+// #define FRM_NO_INLINE
+
 #include <avr/io.h>
 #include "framework.h"
 
 int main(void) {
-	DDRD |= 0x00;
-	set_pin_mode_PORTD(2, OUTPUT);
-    /* Replace with your application code */
-    while (1) 
-    {
-		flip_pin_PORTD(2);
-    }
+	USARTInfo setup = {
+		.usart_inited = 0,
+		.tx = 1,
+		.rx = 1
+	};
+	
+	init_usart0(&setup, 9600, 16);
+	send_usart0('t');
+	
+	PORTA = 0xFF;
 }
 

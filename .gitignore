@@ -1,2 +1,9 @@
 target/
+Debug/
 .vs/
+*.atsln
+
+*.hex
+*.lss
+*.map
+*.srec
