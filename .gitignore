@@ -7,3 +7,7 @@ Debug/
 *.lss
 *.map
 *.srec
+*.elf
+
+**/Makefile
+**/makedep.mk
