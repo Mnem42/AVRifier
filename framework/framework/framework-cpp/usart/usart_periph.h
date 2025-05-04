@@ -17,14 +17,15 @@ const USARTPort USART0 = {
 	.ucsrnc = &UCSR0C,
 	.udrn   = &UDR0
 };
+
 #endif
 
 #ifdef UBRR1
-const USARTPort USART0 = {
+const USARTPort USART1 = {
 	.ubrr   = &UBRR1,
 	.ucsrna = &UCSR1A,
 	.ucsrnb = &UCSR1B,
-	.ucsrnc = &UCSR1C
+	.ucsrnc = &UCSR1C,
 	.udrn   = &UDR1
 };
 #endif

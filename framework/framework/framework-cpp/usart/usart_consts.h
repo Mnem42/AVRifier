@@ -2,9 +2,11 @@
  * usart_consts.h
  *
  * Created: 17/04/2025 13:20:32
- *  Author: Ishaan
+ *  Author: Mnem
  */ 
 #pragma once
+
+#define USART_SETTINGS _SFR_MEM32(0xC0)
 
 // ----------------------------------------------------------------------------
 // USART clock settings
@@ -43,7 +45,7 @@
 // Character size
 #define USART_CSZ_5   0b00000000 << 16              // 5 bits
 #define USART_CSZ_6   0b00000010 << 16              // 6 bits
-#define USART_CSZ_7   0b00000100 << 16              // 7 bits
+#define USART_CSZ_7   0b00100000 << 16              // 7 bits
 #define USART_CSZ_8   0b00000110 << 16              // 8 bits
 #define USART_CSZ_9   USART_CSZ_8 | 0b00000100 << 8 // 9 bits, also sets a bit
                                                     // in UCSRnB

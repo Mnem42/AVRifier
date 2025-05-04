@@ -2,7 +2,7 @@
  * usart.h
  *
  * Created: 17/04/2025 17:27:26
- *  Author: Ishaan
+ *  Author: Mnem
  */ 
 
 
@@ -10,8 +10,8 @@
 #define USART_H_
 
 namespace usart{
-	#include "usart_class.h"
 	#include "usart_consts.h"
+	#include "usart_class.h"
 	#include "usart_periph.h"
 }
 
