@@ -7,9 +7,10 @@
 
 #include <avr/io.h>
 
-#pragma once
+#ifndef PINIO_H_
+#define PINIO_H_
 
-namespace gpio{
-	#include "ioconfig.h"
-	#include "gpio_output.h"
-}
+#include "ioconfig.h"
+#include "gpio_output.h"
+
+#endif

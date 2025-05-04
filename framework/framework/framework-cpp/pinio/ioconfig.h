@@ -14,11 +14,8 @@ typedef enum {
 	OUTPUT = 1
 } PinMode;
 
-IO set_pin_mode(volatile uint8_t* ddrn, const uint8_t pin_offset, PinMode mode){
-	uint8_t tmp = mode << pin_offset;
-	*ddrn = *ddrn & (1 << pin_offset) | tmp; // Mask out the pin to be toggled,
-	                                         // and then OR in the value shifted
-											 // by the offset
+IO set_pin_mode(volatile uint8_t* ddrn, const uint8_t pin_offset, const PinMode mode){
+	*ddrn = (*ddrn & ~((1 << pin_offset)) | mode << pin_offset);
 }
 
 #endif /* IOCONFIG_H_ */

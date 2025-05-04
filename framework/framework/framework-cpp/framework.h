@@ -10,15 +10,22 @@
 #define FRAMEWORK_H_
 
 #ifdef FRM_HINT_INLINE
-#define IO volatile inline void
+#define IO inline void
 #else
-#define IO volatile void
+#define IO void
 #endif
 
 #define NULL 0
 
-#include "pinio/pinio.h"
-
+#ifdef USE_CPP
+#define __FRM_IS_CPP
+#include "pinio/pinio.hpp"
+#include "eeprom/eeprom.hpp"
 // #include "usart/usart.h" (completely nonfunctional)
+#else
+#include "pinio/pinio.h"
+// #include "eeprom/eeprom.h" (needs some reworks to not have name conflicts)
+// #include "usart/usart.h" (completely nonfunctional)
+#endif
 
 #endif /* FRAMEWORK_H_ */

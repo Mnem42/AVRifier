@@ -9,21 +9,26 @@
 
 #define F_CPU 16000000
 #define FRM_HINT_INLINE
+#define FRM_USE_CPP
 
 #include <avr/io.h>
 #include <avr/delay.h>
 #include "framework.h"
 
-using namespace gpio;
-using namespace usart;
-
 int main(void) {
-	volatile uint8_t c = 0x00;
-	//usart0::configure(USART_ASYNC,USART_DD_TXEN| USART_DD_RXEN | USART_CSZ_7);
-	while (1) {
-		usart0::configure(USART_SYNC,USART_DD_TXEN| USART_DD_RXEN | USART_CSZ_7);
-		usart0::send_byte(c);
-		// _delay_ms(100);
-		c += 1;
-	}
+	pinio::set_pin_mode(&DDRB, 7, pinio::OUTPUT);
+	pinio::activate_pin(&PORTB, 7);
+	_delay_ms(1000);
+	pinio::deactivate_pin(&PORTB, 7);
+	_delay_ms(1000);
+	
+	eeprom::atomic::write_byte(0x01, 0xFF);
+	uint8_t tmp = eeprom::atomic::read_byte(0x01);
+	
+	pinio::activate_pin(&PORTB, 7);
+
+	/*while(1){
+		gpio::flip_pin(&DDRB, 7);
+		_delay_ms(1000);
+	}*/
 }
